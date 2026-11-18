@@ -51,10 +51,10 @@ Additional security applications, including Splunk, Velociraptor and BloodHound 
 
 ## Project Workflow
 
-### Phase 1 — Virtualisation and Networking
-- Configure VirtualBox and isolated lab networking.(completed)
-- Deploy Kali Linux and Ubuntu Server.(completed)
-- Configure IP addressing and test connectivity.(completed)
+### Phase 1 — Virtualisation and Networking (completed)
+- Configure VirtualBox and isolated lab networking.
+- Deploy Kali Linux and Ubuntu Server.
+- Configure IP addressing and test connectivity.
 - Document the network architecture.
 
 ### Phase 2 — Linux Fundamentals and Docker
