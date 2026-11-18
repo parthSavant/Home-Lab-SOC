@@ -15,7 +15,10 @@ The objective is to keep lab traffic separate from the physical home network whi
 
 The Host-only network uses the following configuration:
 
-<img width="609" height="406" alt="image" src="https://github.com/user-attachments/assets/d30e1982-2088-4f02-a1ef-13007372301f" />
+![Home-Lab-SOC Network Architecture](diagrams/Lab-Network.png)
+
+The editable draw.io source is available at
+[Lab-Network.drawio](diagrams/Lab-Network.drawio).
 
 Static VM addresses are outside the DHCP pool to avoid address conflicts.
 
@@ -52,15 +55,20 @@ The following tests were performed:
 
 <img width="610" height="676" alt="image" src="https://github.com/user-attachments/assets/cd62f314-3ea4-4dfe-abeb-ac57674b2dba" />
 
+
 ARP checks confirmed that the Windows host could resolve the MAC addresses of the lab machines.
 
 ### Firewall observations
 
-Windows Defender Firewall did not respond to some inbound ICMP Echo Requests.
+- Ubuntu and Kali successfully communicated with each other.
+- Windows Server and Windows 11 successfully communicated with Ubuntu and Kali.
+- The Windows host successfully communicated with Ubuntu and Kali.
+- ICMP ping requests from Linux machines to Windows machines timed out.
+- Windows inbound ICMP Echo Request rules on the personal host were left disabled.
 
-The inbound ICMPv4 Echo Request rules on the personal Windows host were left disabled. No broad firewall changes were made.
-
-The ping limitations are documented rather than treated as proof of a network failure. Successful communication in the other directions confirms that the Host-only network is functioning.
+The failed ping responses do not establish a network connectivity failure.
+Windows Firewall may be filtering inbound ICMP traffic. Further firewall
+investigation was intentionally avoided to preserve host security.
 
 ## 7. Security and Network Design Decisions
 
